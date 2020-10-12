@@ -1,13 +1,22 @@
-# CmakeList 的编写和参数详解
+---
+date: 2020-10-09T12:48:02+08:00  # 创建日期
+author: "Rustle Karl"  # 作者
 
-- [CmakeList 的编写和参数详解](#cmakelist-的编写和参数详解)
-  - [基础规则](#基础规则)
-  - [定义变量](#定义变量)
-    - [日志输出级别](#日志输出级别)
-  - [内置变量](#内置变量)
-  - [命令](#命令)
-  - [CMakeLists 示例](#cmakelists-示例)
-  - [C 工程项目示例](#c-工程项目示例)
+# 文章
+title: "CmakeList 的编写和参数详解"  # 文章标题
+url:  "posts/cpp/build/cmakelist"  # 设置网页链接，默认使用文件名
+tags: [ "cpp", "c", "cmakelist", "cmake" ]  # 自定义标签
+series: [ "C/C++ 学习笔记"]  # 文章主题/文章系列
+categories: [ "学习笔记"]  # 文章分类
+
+# 章节
+weight: 20 # 文章在章节中的排序优先级，正序排序
+chapter: false  # 将页面设置为章节
+
+index: true  # 文章是否可以被索引
+draft: false  # 草稿
+toc: true  # 是否自动生成目录
+---
 
 ## 基础规则
 
