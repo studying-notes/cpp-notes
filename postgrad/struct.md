@@ -3,10 +3,10 @@ date: 2020-10-09T12:48:02+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 # 文章
-title: "C 数据类型"  # 文章标题
-url:  "posts/cpp/abc/struct"  # 设置网页链接，默认使用文件名
+title: "计算机考研之 C/C++ 数据类型"  # 文章标题
+url:  "posts/cpp/postgrad/struct"  # 设置网页链接，默认使用文件名
 tags: [ "cpp", "c" ]  # 自定义标签
-series: [ "C/C++ 学习笔记"]  # 文章主题/文章系列
+series: [ "计算机考研笔记"]  # 文章主题/文章系列
 categories: [ "学习笔记"]  # 文章分类
 
 # 章节
@@ -30,7 +30,37 @@ int a[10];
 
 如果想制作一个数组，第一个变量是整型变量，第二个变量是字符型变量，第三个变量是浮点型变量，该怎么办呢？这时就用到结构体了。结构体就是制作新的数据类型的一种机制，即可以用系统已经有的不同的基本数据类型或用户定义的结构型，组合成用户需要的复杂数据类型。
 
-```c
+### typedef
+
+typedef 用于定义一个新的数据类型。
+
+```c++
+typedef struct {
+    // 成员
+} NewVar;
+```
+
+NewVar 声明了该数据类型的一个变量，这里是匿名结构体，相当于 Go 中的：
+
+```go
+var NewVar struct {
+    // 成员
+}
+```
+
+当该结构体存在指向该相同类型结构体的指针成员时，在定义时 typedef struct 之后必须加上结构体类型的名字。
+
+```c++
+typedef struct Node{
+    struct Node *next;
+} Node;
+```
+
+实际上，最后的 Node 可能毫无用处，但考研书上就这么写。。。
+
+### 定义示例
+
+```c++
 typedef struct {
     int a;
     char b;
@@ -50,7 +80,7 @@ typedef struct {
 
 指针型的定义方法对每种数据类型都有特定的写法。对于每种变量，指针的定义方法有相似的规则 `数据类型 *变量名`，如以下语句：
 
-```c
+```c++
 int *a;
 char *b;
 float *c;
@@ -59,10 +89,71 @@ TypeA *d;
 
 如果 `a` 是个指针型变量，且它已经指向了一个变量 `b`，则 `a` 中存放变量 `b` 所在的地址。`*a` 就是取变量 `b` 的内容（`x=*a;` 等价于 `x=b;`），`&b` 就是取变量 `b` 的地址，语句 `a=&b;` 就是将变量 `b` 的地址存于 `a` 中即大家常说的指针 `a` 指向 `b`。
 
-## 定义链表结点
+### 定义链表结点
 
 链表结点有两个域：一个是数据域，用来存放数据；另一个是指针域，用来存放下一个结点的位置。
 
-```c
+```c++
+typedef struct Node {
+    int data;
+    struct Node *next;
+} Node;
+```
+
+### 定义二叉树结点
+
+```c++
+typedef struct BTNode {
+    int data;
+    struct BTNode *lchild;
+    struct BTNode *rchild;
+} BTNode;
+```
+
+#### 声明一个结点
+
+考研一般用这种：
+
+```c++
+BTNode *BT;
+BT = (BTNode*)malloc(sizeof(BTNode));
+```
+
+### 申请数组空间
+
+```c++
+int *p;
+p = (int*)malloc(n*sizeof(int));
+```
+
+```c++
+
+```
+
+```c++
+
+```
+
+```c++
+
+```
+
+```c++
+
+```
+
+```c++
+
+```
+
+```c++
+
+```
+
+```c++
+
+```
+
+```c++
 
 ```
