@@ -12,6 +12,7 @@
 - [函数](docs/函数.md)
 - [字符及字符串处理](docs/字符及字符串处理.md)
 - [结构体与共用体](docs/结构体与共用体.md)
+- [内存管理](docs/内存管理.md)
 
 ## C++ 语言编程基础
 
@@ -23,6 +24,10 @@
   - [流输入与输出](docs/C++的特性.md#流输入与输出)
   - [模板](docs/C++的特性.md#模板)
   - [异常处理](docs/C++的特性.md#异常处理)
+- [C++函数](docs/C++函数.md)
+- [C++概述](docs/C++概述.md)
+- [C++命名空间](docs/C++命名空间.md)
+- [C++结构体](docs/C++结构体.md)
 
 ## Linux 系统编程
 
@@ -36,7 +41,7 @@
 
 ## 暂未分类
 
-- [数据类型](base/struct.md)
-
-- [CmakeList 的编写和参数详解](build/CMakeLists.md)
-- [静态链接与动态链接](build/link.md)
+- [Clion与WSL设置](docs/Clion与WSL设置.md)
+- [CmakeList 的编写和参数详解](docs/CmakeList的编写和参数详解.md) 
+- [静态链接与动态链接](docs/静态链接与动态链接.md)
+- [数学表达式](docs/数学表达式.md)
