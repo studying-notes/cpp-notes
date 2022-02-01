@@ -62,6 +62,10 @@
     - [chdir系统调用](docs/进程控制.md#chdir系统调用)
     - [chroot系统调用](docs/进程控制.md#chroot系统调用)
     - [nice系统调用](docs/进程控制.md#nice系统调用)
+- [进程间通信](docs/进程间通信.md)
+  - [进程间使用管道通信](docs/进程间通信.md#进程间使用管道通信)
+    - [pipe系统调用](docs/进程间通信.md#pipe系统调用)
+    - [dup系统调用](docs/进程间通信.md#dup系统调用)
 
 ## 暂未分类
 
