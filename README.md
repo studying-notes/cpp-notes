@@ -82,3 +82,8 @@
 - [CmakeList 的编写和参数详解](docs/CmakeList的编写和参数详解.md) 
 - [静态链接与动态链接](docs/静态链接与动态链接.md)
 - [数学表达式](docs/数学表达式.md)
+
+## 标准库
+
+- [解析命令行参数](libraries/standard/getopt.md)
+
