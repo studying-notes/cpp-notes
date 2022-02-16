@@ -1,4 +1,42 @@
-# C & C++ 学习笔记
+---
+date: 2022-02-16T21:39:01+08:00  # 创建日期
+author: "Rustle Karl"  # 作者
+
+# 文章
+title: "C 学习笔记"  # 文章标题
+description: "纸上得来终觉浅，学到过知识点分分钟忘得一干二净，今后无论学什么，都做好笔记吧。"
+url:  "posts/c/README"  # 设置网页永久链接
+tags: [ "C", "README" ]  # 标签
+series: [ "C 学习笔记" ]  # 系列
+categories: [ "学习笔记" ]  # 分类
+
+index: true  # 是否可以被索引
+toc: true  # 是否自动生成目录
+draft: false  # 草稿
+---
+
+# C 学习笔记
+
+> 纸上得来终觉浅，学到过知识点分分钟忘得一干二净，今后无论学什么，都做好笔记吧。
+
+## 目录结构
+
+- `assets/images`: 笔记配图
+- `assets/templates`: 笔记模板
+- `docs`: 基础语法
+- `libraries`: 库
+  - `libraries/standard`: 标准库
+  - `libraries/tripartite`: 第三方库
+- `quickstart`: 基础用法
+- `src`: 源码示例
+  - `src/docs`: 基础语法源码示例
+  - `src/libraries/standard`: 标准库源码示例
+  - `src/libraries/tripartite`: 第三方库源码示例
+  - `src/quickstart`: 基础用法源码示例
+
+## 基础用法
+
+## 基础语法
 
 ## C 语言编程基础
 
@@ -29,7 +67,13 @@
 - [C++命名空间](docs/C++命名空间.md)
 - [C++结构体](docs/C++结构体.md)
 
-## Linux 系统编程
+## 库
+
+## 标准库
+
+- [解析命令行参数](libraries/standard/getopt.md)
+
+### Linux 系统编程
 
 - [文件操作](docs/文件操作.md)
   - [打开、新建和关闭操作](docs/文件操作.md#打开文件、新建文件和关闭文件操作)
@@ -76,14 +120,11 @@
     - [取消线程](docs/线程控制.md#取消线程)
     - [多线程的实现](docs/线程控制.md#多线程的实现)
 
+## 第三方库
+
 ## 暂未分类
 
 - [Clion与WSL设置](docs/Clion与WSL设置.md)
 - [CmakeList 的编写和参数详解](docs/CmakeList的编写和参数详解.md) 
 - [静态链接与动态链接](docs/静态链接与动态链接.md)
 - [数学表达式](docs/数学表达式.md)
-
-## 标准库
-
-- [解析命令行参数](libraries/standard/getopt.md)
-
