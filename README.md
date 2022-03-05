@@ -36,6 +36,8 @@ draft: false  # 草稿
 
 ## 基础用法
 
+- [Makefile 详解](quickstart/Makefile.md)
+
 ## 基础语法
 
 ## C 语言编程基础
