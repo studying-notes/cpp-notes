@@ -55,6 +55,7 @@ draft: false  # 草稿
 ### Linux C 编程
 
 - [第6章_数据类型、运算符和表达式](docs/[Linux]C/第6章_数据类型、运算符和表达式.md)
+- [第9章_函数](docs/[Linux]C/第9章_函数.md)
 - [第12章_C++语言编程基础](docs/[Linux]C/第12章_C++语言编程基础.md)
 
 
