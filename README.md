@@ -138,6 +138,7 @@ draft: false  # 草稿
 - [Crypto++ 的编译与基本用法](libraries/tripartite/crypto/cryptopp.md)
 - [HTTP 客户端 curl 库用法](libraries/tripartite/curl.md)
 - [日志库 spdlog 基本用法](libraries/tripartite/spdlog.md)
+- [CPP JSON 库 nlohmann_json 用法](libraries/tripartite/nlohmann_json.md)
 
 ## 暂未分类
 
