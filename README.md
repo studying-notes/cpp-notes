@@ -57,6 +57,7 @@ draft: false  # 草稿
 - [第3章_GCC编译器与调试器](docs/[Linux]C/第3章_GCC编译器与调试器.md)
 - [第6章_数据类型、运算符和表达式](docs/[Linux]C/第6章_数据类型、运算符和表达式.md)
 - [第7章_程序控制结构](docs/[Linux]C/第7章_程序控制结构.md)
+- [第8章_数组与指针](docs/[Linux]C/第8章_数组与指针.md)
 - [第9章_函数](docs/[Linux]C/第9章_函数.md)
 - [第11章_结构体与共用体](docs/[Linux]C/第11章_结构体与共用体.md)
 - [第12章_C++语言编程基础](docs/[Linux]C/第12章_C++语言编程基础.md)
@@ -66,11 +67,11 @@ draft: false  # 草稿
 
 ## 库
 
-## 标准库
+### 标准库
 
 - [解析命令行参数](libraries/standard/getopt.md)
 
-## 第三方库
+### 第三方库
 
 - [Crypto++ 的编译与基本用法](libraries/tripartite/crypto/cryptopp.md)
 - [HTTP 客户端 curl 库用法](libraries/tripartite/curl.md)
