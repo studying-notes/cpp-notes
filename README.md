@@ -65,7 +65,7 @@ draft: false  # 草稿
 - [第14章_文件IO操作](docs/[Linux]C/第14章_文件IO操作.md)
 - [第15章_进程控制](docs/[Linux]C/第15章_进程控制.md)
 - [第16章_进程间通信](docs/[Linux]C/第16章_进程间通信.md)
-
+- [第17章_线程控制](docs/[Linux]C/第17章_线程控制.md)
 
 ## 库
 
