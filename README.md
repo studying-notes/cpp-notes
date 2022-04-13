@@ -62,6 +62,7 @@ draft: false  # 草稿
 - [第11章_结构体与共用体](docs/[Linux]C/第11章_结构体与共用体.md)
 - [第12章_C++语言编程基础](docs/[Linux]C/第12章_C++语言编程基础.md)
 - [第13章_文件操作](docs/[Linux]C/第13章_文件操作.md)
+- [第14章_文件IO操作](docs/[Linux]C/第14章_文件IO操作.md)
 - [第15章_进程控制](docs/[Linux]C/第15章_进程控制.md)
 - [第16章_进程间通信](docs/[Linux]C/第16章_进程间通信.md)
 
