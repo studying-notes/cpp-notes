@@ -12,6 +12,11 @@ toc: true  # 目录
 draft: false  # 草稿
 ---
 
+```shell
+clang-format --help
+OVERVIEW: A tool to format C/C++/Java/JavaScript/Objective-C/Protobuf/C# code.
+```
+
 ## MacOS
 
 ```shell
@@ -22,4 +27,8 @@ brew install clang-format
 
 ```shell
 https://llvm.org/builds/
+```
+
+```shell
+choco install llvm
 ```
