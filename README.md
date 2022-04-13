@@ -81,3 +81,4 @@ draft: false  # 草稿
 ## 暂未分类
 
 - [用 CPP 进行数学计算](docs/others/math.md)
+- [C 语言内存管理](docs/others/memory.md)
