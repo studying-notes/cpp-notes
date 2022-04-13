@@ -38,7 +38,16 @@ draft: false  # 草稿
 
 ## 基础用法
 
-- [Makefile 详解](quickstart/Makefile.md)
+- [用 clang-format 代码格式化](quickstart/clang_format.md)
+
+### 依赖
+
+- [vcpkg 管理 C 和 C++ 库](quickstart/compile/vcpkg.md)
+
+### 编译
+
+- [Makefile 详解](quickstart/compile/Makefile.md)
+- [CMake 详解](quickstart/compile/cmake.md)
 
 ## 基础语法
 
