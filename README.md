@@ -48,6 +48,7 @@ draft: false  # 草稿
 
 - [Makefile 详解](quickstart/compile/Makefile.md)
 - [CMake 详解](quickstart/compile/cmake.md)
+- [GCC 静态链接与动态链接](quickstart/compile/link.md)
 
 ## 基础语法
 
@@ -143,7 +144,5 @@ draft: false  # 草稿
 
 ## 暂未分类
 
-- [Clion与WSL设置](docs/Clion与WSL设置.md)
-- [CmakeList 的编写和参数详解](docs/CmakeList的编写和参数详解.md) 
 - [静态链接与动态链接](docs/静态链接与动态链接.md)
-- [数学表达式](docs/数学表达式.md)
+- [数学表达式](docs/others/数学表达式.md)
