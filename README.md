@@ -69,6 +69,8 @@ draft: false  # 草稿
 - [第16章_进程间通信](docs/[Linux]C/第16章_进程间通信.md)
 - [第17章_线程控制](docs/[Linux]C/第17章_线程控制.md)
 
+### [C++ 笔记目录](docs/CPP/README.md)
+
 ## 库
 
 ### 标准库
