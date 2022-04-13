@@ -144,5 +144,4 @@ draft: false  # 草稿
 
 ## 暂未分类
 
-- [静态链接与动态链接](docs/静态链接与动态链接.md)
-- [数学表达式](docs/others/数学表达式.md)
+- [用 CPP 进行数学计算](docs/others/math.md)
