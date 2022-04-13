@@ -49,6 +49,7 @@ draft: false  # 草稿
 - [Makefile 详解](quickstart/compile/Makefile.md)
 - [CMake 详解](quickstart/compile/cmake.md)
 - [GCC 静态链接与动态链接](quickstart/compile/link.md)
+- [C 语言编译预处理命令](quickstart/compile/preprocessing_command.md)
 
 ## 基础语法
 
