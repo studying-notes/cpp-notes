@@ -41,12 +41,6 @@ draft: false  # 草稿
   - Modules：模块克服了头文件的限制。头文件和源文件的分离变得和预处理器一样过时了。最后，我们有更快的构建时间和更轻松的构建软件包的方法。
   - Concurrency：Atomic Smart Pointers,Joining & Cancellable Threads,The C20 Synchronization Library，增强了 C++ 并发编程能力；
 
-## 🚪 入门教程 
-
-### C++ 入门教程
-
-### C++ 学习笔记
-
 ## 🌰 干货铺
 
 * [C++ Standard Library](http://en.wikipedia.org/wiki/C%2B%2B_Standard_Library) - 一系列类和函数的集合，使用核心语言编写，也是C++ISO自身标准的一部分
