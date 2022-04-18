@@ -104,6 +104,7 @@ draft: false  # 草稿
 - [第3章_C++新特性_CPP11_左值右值](docs/CPP/CPP_11/第3章_C++新特性_CPP11_左值右值.md)
 - [第3章_C++新特性_CPP11_Lambda表达式](docs/CPP/CPP_11/第3章_C++新特性_CPP11_Lambda表达式.md)
 - [第3章_C++新特性_CPP11_模板](docs/CPP/CPP_11/第3章_C++新特性_CPP11_模板.md)
+- [第3章_C++新特性_CPP11_线程](docs/CPP/CPP_11/第3章_C++新特性_CPP11_线程.md)
 
 ## 库
 
