@@ -3,7 +3,7 @@ date: 2022-04-13T22:20:05+08:00
 author: "Rustle Karl"
 
 title: "第3章_C++新特性_CPP11"
-url:  "posts/cpp/docs/第3章_C++新特性_CPP11"  # 永久链接
+url:  "posts/cpp/docs/CPP/CPP_11/第3章_C++新特性_CPP11"  # 永久链接
 tags: [ "C", "C++" ]  # 标签
 series: [ "C 学习笔记" ]  # 系列
 categories: [ "学习笔记" ]  # 分类
@@ -11,6 +11,7 @@ categories: [ "学习笔记" ]  # 分类
 toc: true  # 目录
 draft: false  # 草稿
 ---
+
 
 ## 将 C99 标准纳入 C++11
 

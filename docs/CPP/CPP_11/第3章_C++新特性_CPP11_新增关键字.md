@@ -3,7 +3,7 @@ date: 2022-04-13T22:20:05+08:00
 author: "Rustle Karl"
 
 title: "第3章_C++新特性_CPP11_新增关键字"
-url:  "posts/cpp/docs/第3章_C++新特性_CPP11_新增关键字"  # 永久链接
+url:  "posts/cpp/docs/CPP/CPP_11/第3章_C++新特性_CPP11_新增关键字"  # 永久链接
 tags: [ "C", "C++" ]  # 标签
 series: [ "C 学习笔记" ]  # 系列
 categories: [ "学习笔记" ]  # 分类
