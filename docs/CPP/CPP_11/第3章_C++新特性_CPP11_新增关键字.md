@@ -24,6 +24,9 @@ draft: false  # 草稿
   - [decltype 和 auto 差异](#decltype-和-auto-差异)
   - [推导规则](#推导规则-1)
 - [class](#class)
+  - [final & override](#final--override)
+- [enum class](#enum-class)
+- [explicit](#explicit)
 - [default](#default)
   - [结构体](#结构体)
   - [类](#类)
@@ -47,6 +50,12 @@ draft: false  # 草稿
 - [noexcept](#noexcept)
   - [noexcept 指定符](#noexcept-指定符)
   - [noexcept 运算符](#noexcept-运算符)
+- [const](#const)
+  - [用于定义常量](#用于定义常量)
+  - [指针常量](#指针常量)
+  - [函数参数](#函数参数)
+  - [修饰类的成员变量](#修饰类的成员变量)
+  - [修饰类对象](#修饰类对象)
 - [constexpr](#constexpr)
   - [constexpr 和 const 的区别](#constexpr-和-const-的区别)
   - [用法](#用法)
@@ -57,6 +66,12 @@ draft: false  # 草稿
 - [char16_t 和 char32_t](#char16_t-和-char32_t)
   - [产生原因](#产生原因)
 - [alignof 和 alignas](#alignof-和-alignas)
+- [chrono](#chrono)
+- [duration](#duration)
+  - [time_point](#time_point)
+  - [steady_clock](#steady_clock)
+  - [system_clock](#system_clock)
+  - [high_resolution_clock](#high_resolution_clock)
 
 ## auto
 
@@ -308,6 +323,145 @@ C++11 中对类 (class) 新增的特性：
 * 继承的构造函数 Inheriting constructors
 * 类内部成员的初始化 Non-static data member initializers
 * 移动构造和移动赋值
+
+### final & override
+
+C++11 关于继承新增了两个关键字，final 用于修饰一个类，表示禁止该类进一步派生和虚函数的进一步重载，override 用于修饰派生类中的成员函数，标明该函数重写了基类函数，如果一个函数声明了 override 但父类却没有这个虚函数，编译报错，使用 override 关键字可以避免开发者在重写基类函数时无意产生的错误。
+
+示例代码1：
+
+```c++
+struct Base {
+    virtual void func() {
+        cout << "base" << endl;
+    }
+};
+
+struct Derived : public Base{
+    void func() override { // 确保func被重写
+        cout << "derived" << endl;
+    }
+
+    void fu() override { // error，基类没有fu()，不可以被重写
+    }
+};
+```
+
+示例代码2：
+
+```c++
+struct Base final {
+    virtual void func() {
+        cout << "base" << endl;
+    }
+};
+
+struct Derived : public Base{ // 编译失败，final修饰的类不可以被继承
+    void func() override {
+        cout << "derived" << endl;
+    }
+};
+```
+
+
+## enum class
+
+c++11 新增有作用域的枚举类型，看代码
+
+不带作用域的枚举代码：
+
+```c++
+enum AColor {
+    kRed,
+    kGreen,
+    kBlue
+};
+
+enum BColor {
+    kWhite,
+    kBlack,
+    kYellow
+};
+
+int main() {
+    if (kRed == kWhite) {
+        cout << "red == white" << endl;
+    }
+    return 0;
+}
+```
+
+如上代码，不带作用域的枚举类型可以自动转换成整形，且不同的枚举可以相互比较，代码中的红色居然可以和白色比较，这都是潜在的难以调试的bug，而这种完全可以通过有作用域的枚举来规避。
+
+有作用域的枚举代码：
+
+```c++
+enum class AColor {
+    kRed,
+    kGreen,
+    kBlue
+};
+
+enum class BColor {
+    kWhite,
+    kBlack,
+    kYellow
+};
+
+int main() {
+    if (AColor::kRed == BColor::kWhite) { // 编译失败
+        cout << "red == white" << endl;
+    }
+    return 0;
+}
+```
+
+使用带有作用域的枚举类型后，对不同的枚举进行比较会导致编译失败，消除潜在bug，同时带作用域的枚举类型可以选择底层类型，默认是int，可以改成char等别的类型。
+
+```c++
+enum class AColor : char {
+    kRed,
+    kGreen,
+    kBlue
+};
+```
+
+平时编程过程中使用枚举，一定要使用有作用域的枚举取代传统的枚举。
+
+## explicit
+
+explicit 专用于修饰构造函数，表示只能显式构造，不可以被隐式转换，根据代码看 explicit 的作用：
+
+不用 explicit：
+
+```c++
+struct A {
+    A(int value) { // 没有explicit关键字
+        cout << "value" << endl;
+    }
+};
+
+int main() {
+    A a = 1; // 可以隐式转换
+    return 0;
+}
+```
+
+使用 explicit:
+
+```c++
+struct A {
+    explicit A(int value) {
+        cout << "value" << endl;
+    }
+};
+
+int main() {
+    A a = 1; // error，不可以隐式转换
+    A aa(2); // ok
+    return 0;
+}
+```
 
 ## default
 
@@ -999,6 +1153,72 @@ int main()
 }
 ```
 
+## const
+
+因为要讲后面的 constexpr，所以这里简单介绍下 const。
+
+const 字面意思为只读，可用于定义变量，表示变量是只读的，不可以更改，如果更改，编译期间就会报错。
+
+主要用法如下：
+
+### 用于定义常量
+
+```c++
+const int value = 5;
+```
+
+### 指针常量
+
+这里有个小技巧，从右向左读，即可知道 const 究竟修饰的是指针还是指针所指向的内容。
+
+```c++
+char *const ptr; // 指针本身是常量
+const char* ptr; // 指针指向的变量为常量
+```
+
+### 函数参数
+
+一般会传递类对象时会传递一个 const 的引用或者指针，这样可以避免对象的拷贝，也可以防止对象被修改。
+
+```c++
+class A{};
+void func(const A& a);
+```
+
+### 修饰类的成员变量
+
+表示是成员常量，不能被修改，可以在初始化列表中被赋值。
+
+```c++
+class A {
+    const int value = 5;
+};
+class B {
+    const int value;
+    B(int v) : value(v){}
+};
+```
+
+1. 修饰类成员函数，表示在该函数内不可以修改该类的成员变量。
+
+```c++
+class A{
+    void func() const;
+};
+```
+
+### 修饰类对象
+
+类对象只能调用该对象的const成员函数。
+
+```c++
+class A {
+    void func() const;
+};
+const A a;
+a.func();
+```
+
 ## constexpr
 
 将变量声明为 constexpr 类型以便由编译器来验证变量是否是一个常量表达式（不会改变，在编译过程中就能得到计算结果的表达式）。
@@ -1268,3 +1488,97 @@ sizeof(s1)	4
 sizeof(s11)	16
 sizeof(s12)	16
 ```
+
+## chrono
+
+c++11 关于时间引入了 chrono 库，源于 boost，功能强大，chrono 主要有三个点：
+
+- duration
+- time_point
+- clocks
+
+## duration
+
+std::chrono::duration 表示一段时间，常见的单位有 s、ms 等，示例代码：
+
+```c++
+// 拿休眠一段时间举例，这里表示休眠100ms
+std::this_thread::sleep_for(std::chrono::milliseconds(100));
+```
+
+sleep_for 里面其实就是 std::chrono::duration，表示一段时间，实际是这样：
+
+```c++
+typedef duration<int64_t, milli> milliseconds;
+typedef duration<int64_t> seconds;
+```
+
+duration具体模板如下：
+
+```c++
+template <class Rep, class Period = ratio<1> > class duration;
+```
+
+Rep 表示一种数值类型，用来表示 Period 的数量，比如 int、float、double，Period 是 ratio 类型，用来表示【用秒表示的时间单位】比如 second，常用的 duration<Rep, Period>已经定义好了，在 std::chrono::duration 下：
+
+- ratio<3600, 1>：hours
+- ratio<60, 1>：minutes
+
+- ratio<1, 1>：seconds
+- ratio<1, 1000>：microseconds
+
+- ratio<1, 1000000>：microseconds
+- ratio<1, 1000000000>：nanosecons
+
+ratio的具体模板如下：
+
+```c++
+template <intmax_t N, intmax_t D = 1> class ratio;
+```
+
+N 代表分子，D 代表分母，所以 ratio 表示一个分数，可以自定义 Period，比如 ratio<2, 1> 表示单位时间是 2 秒。
+
+### time_point
+
+表示一个具体时间点，如2020年5月10日10点10分10秒，拿获取当前时间举例：
+
+```c++
+std::chrono::time_point<std::chrono::high_resolution_clock> Now() {
+    return std::chrono::high_resolution_clock::now();
+}
+// std::chrono::high_resolution_clock为高精度时钟，下面会提到
+```
+
+clocks
+
+时钟，chrono里面提供了三种时钟：
+
+- steady_clock
+- system_clock
+
+- high_resolution_clock
+
+### steady_clock
+
+稳定的时间间隔，表示相对时间，相对于系统开机启动的时间，无论系统时间如何被更改，后一次调用now()肯定比前一次调用now()的数值大，可用于计时。
+
+### system_clock
+
+表示当前的系统时钟，可以用于获取当前时间：
+
+```c++
+int main() {
+    using std::chrono::system_clock;
+    system_clock::time_point today = system_clock::now();
+
+    std::time_t tt = system_clock::to_time_t(today);
+    std::cout << "today is: " << ctime(&tt);
+
+    return 0;
+}
+// today is: Sun May 10 09:48:36 2020
+```
+
+### high_resolution_clock
+
+high_resolution_clock表示系统可用的最高精度的时钟，实际上就是system_clock或者steady_clock其中一种的定义，官方没有说明具体是哪个，不同系统可能不一样，看gcc chrono源码中high_resolution_clock是steady_clock的typedef。
