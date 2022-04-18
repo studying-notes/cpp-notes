@@ -13,20 +13,16 @@ draft: false  # 草稿
 ---
 
 - [shared_ptr](#shared_ptr)
+  - [使用方法](#使用方法)
+  - [注意点](#注意点)
 - [weak_ptr](#weak_ptr)
 - [unique_ptr](#unique_ptr)
 
-c++11引入了三种智能指针：
-
-- std::shared_ptr
-- std::weak_ptr
-- std::unique_ptr
-
 ## shared_ptr
 
-shared_ptr使用了引用计数，每一个shared_ptr的拷贝都指向相同的内存，每次拷贝都会触发引用计数+1，每次生命周期结束析构的时候引用计数-1，在最后一个shared_ptr析构的时候，内存才会释放。
+shared_ptr 使用了引用计数，每一个 shared_ptr 的拷贝都指向相同的内存，每次拷贝都会触发引用计数 +1，每次生命周期结束析构的时候引用计数 -1，在最后一个 shared_ptr 析构的时候，内存才会释放。
 
-使用方法如下：
+### 使用方法
 
 ```c++
 struct ClassWrapper {
@@ -62,17 +58,16 @@ int main() {
 }
 ```
 
-智能指针还可以自定义删除器，在引用计数为0的时候自动调用删除器来释放对象的内存，代码如下：
+智能指针还可以自定义删除器，在引用计数为 0 的时候自动调用删除器来释放对象的内存，代码如下：
 
 ```c++
 std::shared_ptr<int> ptr(new int, [](int *p){ delete p; });
 ```
 
-关于shared_ptr有几点需要注意：
+### 注意点
 
-• 不要用一个裸指针初始化多个shared_ptr，会出现double_free导致程序崩溃
-
-• 通过shared_from_this()返回this指针，不要把this指针作为shared_ptr返回出来，因为this指针本质就是裸指针，通过this返回可能 会导致重复析构，不能把this指针交给智能指针管理。
+- 不要用一个裸指针初始化多个 shared_ptr，会出现 double_free 导致程序崩溃
+- 通过 shared_from_this() 返回 this 指针，不要把 this 指针作为 shared_ptr 返回出来，因为 this 指针本质就是裸指针，通过 this 返回可能 会导致重复析构，不能把 this 指针交给智能指针管理。
 
 ```c++
 class A {
@@ -83,10 +78,9 @@ class A {
 };
 ```
 
-- 尽量使用make_shared，少用new。
-- 不要delete get()返回来的裸指针。
-
-- 不是new出来的空间要自定义删除器。
+- 尽量使用 make_shared，少用 new。
+- 不要 delete get() 返回来的裸指针。
+- 不是 new 出来的空间要自定义删除器。
 - 要避免循环引用，循环引用导致内存永远不会被释放，造成内存泄漏。
 
 ```c++
@@ -117,14 +111,14 @@ int main() {
 }
 ```
 
-上面代码，产生了循环引用，导致aptr和bptr的引用计数为2，离开作用域后aptr和bptr的引用计数-1，但是永远不会为0，导致指针永远不会析构，产生了内存泄漏，如何解决这种问题呢，答案是使用weak_ptr。
+上面代码，产生了循环引用，导致 aptr 和 bptr 的引用计数为 2，离开作用域后 aptr 和 bptr 的引用计数 -1，但是永远不会为 0，导致指针永远不会析构，产生了内存泄漏，如何解决这种问题呢，答案是使用 weak_ptr。
 
 ## weak_ptr
 
-weak_ptr是用来监视shared_ptr的生命周期，它不管理shared_ptr内部的指针，它的拷贝的析构都不会影响引用计数，纯粹是作为一个旁观者监视shared_ptr中管理的资源是否存在，可以用来返回this指针和解决循环引用问题。
+weak_ptr 是用来监视 shared_ptr 的生命周期，它不管理 shared_ptr 内部的指针，它的拷贝的析构都不会影响引用计数，纯粹是作为一个旁观者监视 shared_ptr 中管理的资源是否存在，可以用来返回 this 指针和解决循环引用问题。
 
-- 作用1：返回this指针，上面介绍的shared_from_this()其实就是通过weak_ptr返回的this指针。
-- 作用2：解决循环引用问题。
+- 作用 1：返回 this 指针，上面介绍的 shared_from_this() 其实就是通过 weak_ptr 返回的 this 指针。
+- 作用 2：解决循环引用问题。
 
 ```c++
 struct A;
@@ -173,7 +167,7 @@ B delete
 
 ## unique_ptr
 
-std::unique_ptr是一个独占型的智能指针，它不允许其它智能指针共享其内部指针，也不允许unique_ptr的拷贝和赋值。使用方法和shared_ptr类似，区别是不可以拷贝：
+std::unique_ptr 是一个独占型的智能指针，它不允许其它智能指针共享其内部指针，也不允许 unique_ptr 的拷贝和赋值。使用方法和 shared_ptr 类似，区别是不可以拷贝：
 
 ```c++
 using namespace std;
