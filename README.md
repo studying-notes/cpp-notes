@@ -100,6 +100,7 @@ draft: false  # 草稿
 #### 第3章_C++新特性
 
 - [第3章_C++新特性_CPP11](docs/CPP/第3章_C++新特性_CPP11.md)
+- [第3章_C++新特性_CPP11_新增关键字](docs/CPP/第3章_C++新特性_CPP11_新增关键字.md)
 - [第3章_C++新特性_CPP11_Lambda表达式](docs/CPP/第3章_C++新特性_CPP11_Lambda表达式.md)
 
 ## 库
