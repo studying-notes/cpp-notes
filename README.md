@@ -109,6 +109,7 @@ draft: false  # 草稿
 - [第3章_C++新特性_CPP11_列表初始化](docs/CPP/CPP_11/第3章_C++新特性_CPP11_列表初始化.md)
 
 - [第3章_C++新特性_CPP14](docs/CPP/CPP_14/第3章_C++新特性_CPP14.md)
+- [第3章_C++新特性_CPP17](docs/CPP/CPP_17/第3章_C++新特性_CPP17.md)
 
 
 ## 库
