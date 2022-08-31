@@ -1,0 +1,14 @@
+author: Rustle Karl
+author_email: fu.jiawei@outlook.com
+created_at: '2022-08-31T16:54:01+08:00'
+github_username: fujiawei-dev
+pypi_username: fujiawei
+version: 1.5.7+1.g34d8041.dirty
+project_slug:
+  kebab_case: virtual
+  snake_case: virtual
+  words_capitalized: Virtual
+  words_lowercase: virtual
+project_short_description: 虚函数
+x64_arch: true
+enable_3rd_module: false
