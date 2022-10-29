@@ -417,7 +417,7 @@ int main(int argc, char **argv)
 }
 ```
 
-在 asp.net Web 服务器上跟踪调试，得到客户程序提交上来的数据，下面是截图：[![pic1](http://dd-static.jd.com/ddimg/jfs/t1/104347/3/24238/46269/62109ce5E1545f57e/c51e23c7b7425c48.jpg)](https://p-blog.csdn.net/images/p_blog_csdn_net/JGood/601714/o_pic1.jpg)
+在 asp.net Web 服务器上跟踪调试，得到客户程序提交上来的数据，下面是截图：[![pic1](../../assets/images/libraries/tripartite/curl/c51e23c7b7425c48.jpg)](https://p-blog.csdn.net/images/p_blog_csdn_net/JGood/601714/o_pic1.jpg)
 
 上面的代码够简单吧~ _ ~ 有时候，我们需要提交一些二进制数据到 HTTP 服务器，使用方法一就不行了，因为方法一中实际提交的是一个字符串，字符串遇到 /0 就表示结束了。所以在上传二进制数据的时候，必须明确的告诉 libcurl 要提交的数据的长度。在上传二进制数据的时候，还应该设置提交的 Content-Type 头信息。下面的示例代码：
 
@@ -451,7 +451,7 @@ int main(int argc, char **argv)
 }
 ```
 
-在 asp.net Web 服务器上跟踪调试，得到客户程序提交上来的二进制数据，下面是截图：[![pic1](http://dd-static.jd.com/ddimg/jfs/t1/213270/26/12728/73555/62109ceeE5caf845f/341e00cf7c72626f.jpg)](https://p-blog.csdn.net/images/p_blog_csdn_net/JGood/601714/o_pic1_2.jpg)
+在 asp.net Web 服务器上跟踪调试，得到客户程序提交上来的二进制数据，下面是截图：[![pic1](../../assets/images/libraries/tripartite/curl/341e00cf7c72626f.jpg)](https://p-blog.csdn.net/images/p_blog_csdn_net/JGood/601714/o_pic1_2.jpg)
 
 上面介绍的两种方式，可以完成大部分的 HTTP POST 操作。但上面的两种方式都不支持 multi-part formposts。Multi-part formposts 被认为是提交二进制数据 ( 或大量数据 ) 的更好方法，可以在 RFC1867, RFC2388 中找到他们的定义。何为 Multi-part ？其实，就我理解，就是在 Post 提交的时候，有不同的数据单元，每个单元有自己的名称与内容，内容可以是文本的，也可以是二进制的。同时，每个数据单元都可以有自己的消息头，MIME 类型，这些数据单元组成一个链表，提交到 HTTP 服务器。libcurl 提供了方便的 api 用于支持 multi-part formposts。使用 curl_formadd 函数，可以添加不同的数据数据单元，然后提交到服务器。下面是一个 multi-part formposts 的例子（更详细的使用，请参考：http://curl.haxx.se/libcurl/c/curl_formadd.html ）：
 
@@ -717,7 +717,7 @@ int main(int argc, char **argv)
    cookie是一个键值对的集合，HTTP服务器发给客户端的cookie，客户端提交请求的时候，也会将cookie发送到服务器。服务器可以根据cookie来跟踪用户的会话信息。cookie有过期时间，超时后cookie就会失效。cookie有域名和路径限制，cookie只能发给指定域名和路径的HTTP服务器。
 
   cookie以消息头”Set-Cookie”的形式从HTTP服务器发送到客户端；客户端发以消息头”Cookie”的形式将Cookie提交到HTTP服务器。为了对这些东西有个直观的概念，下图是FireFox中，使用Firebug跟踪到的cookie消息头： 
- [![pic1](http://dd-static.jd.com/ddimg/jfs/t1/151195/16/25941/129276/62109cfbE08d32d88/9986996de51aa43c.jpg)](https://p-blog.csdn.net/images/p_blog_csdn_net/JGood/601714/o_pic1_4.jpg)
+ [![pic1](../../assets/images/libraries/tripartite/curl/9986996de51aa43c.jpg)](https://p-blog.csdn.net/images/p_blog_csdn_net/JGood/601714/o_pic1_4.jpg)
 
   在libcurl中，可以通过CURLOPT_COOKIE属性来设置发往服务器的cookie：
 
@@ -749,7 +749,7 @@ int main(int argc, char **argv)
 }
 ```
 
-  下图是在ASP.NET Web服务器上调试时跟踪到的Cookie数据：[![pic1](http://dd-static.jd.com/ddimg/jfs/t1/175514/29/28640/52426/62109cfcE4d6886a6/f59348a4b216c363.jpg)](https://p-blog.csdn.net/images/p_blog_csdn_net/JGood/601714/o_pic1_5.jpg)
+  下图是在ASP.NET Web服务器上调试时跟踪到的Cookie数据：[![pic1](../../assets/images/libraries/tripartite/curl/f59348a4b216c363.jpg)](https://p-blog.csdn.net/images/p_blog_csdn_net/JGood/601714/o_pic1_5.jpg)
 
    在实在的应用场景中，你可能需要保存服务器发送给你的cookie，并在接下来的请求中，把这些cookie一并发往服务器。所以，可以把上次从服务器收到的所有响应头信息保存到文本文件中，当下次需要向服务器发送请求时，通过CURLOPT_COOKIEFILE属性告诉libcurl从该文件中读取cookie信息。 
   设置CURLOPT_COOKIEFILE属性意味着激活libcurl的cookie parser。在cookie parser被激活之前，libcurl忽略所以之前接收到的cookie信息。cookie parser被激活之后，cookie信息将被保存内存中，在接下来的请求中，libcurl会自动将这些cookie信息添加到消息头里，你的应用程序不需要做任何事件。大多数情况下，这已经足够了。需要注意的是，通过CURLOPT_COOKIEFILE属性来激活cookie parser，给CURLOPT_COOKIEFILE属性设置的一个保存cookie信息的文本文件路径，可能并不需要在磁盘上物理存在。 

@@ -632,7 +632,7 @@ auto res = cli.Get("/", [](uint64_t len, uint64_t total) {
 );
 ```
 
-![progress](https://user-images.githubusercontent.com/236374/33138910-495c4ecc-cf86-11e7-8693-2fc6d09615c4.gif)
+![progress](../../assets/images/libraries/tripartite/httplib/33138910-495c4ecc-cf86-11e7-8693-2fc6d09615c4.gif)
 
 ### Authentication
 
