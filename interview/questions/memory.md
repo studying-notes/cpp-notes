@@ -28,6 +28,8 @@ draft: false  # 草稿
 
 需要注意的是，代码段和数据段之间有明确的分隔，但是数据段和堆栈段之间没有，而且栈是向下增长的，堆是向上增长的。
 
+![img](../../assets/images/interview/questions/memory/v2-f66cc21f6d1a0fa8c39021b7fd8d7533_1440w.webp)
+
 程序示例如下：
 
 ```c++
