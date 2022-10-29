@@ -1,9 +1,9 @@
 ---
-date: 2022-10-24T14:53:59+08:00  # 创建日期
+date: 2022-10-24 14:53:59+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
-title: "C/C++关键字相关问题"  # 文章标题
-url:  "posts/cpp/interview/questions/keywords"  # 设置网页永久链接
+title: "关键字"  # 文章标题
+url:  "posts/cpp/interview/language/keywords"  # 设置网页永久链接
 tags: [ "C", "C++" ]  # 标签
 series: [ "C 学习笔记" ]  # 系列
 categories: [ "学习笔记" ]  # 分类
@@ -441,7 +441,7 @@ int main() {
 
 对于 str5 与 str6，它们也是字符指针，由于它们指向的空间是在堆空间申请的，而在堆空间每次都会分配不同的存储空间，因此它们的值也不相等。
 
-![](../../assets/images/interview/questions/keywords/图1-1%20字符串存储方式.png)
+![](../../assets/images/interview/language/keywords/图1-1%20字符串存储方式.png)
 
 从图 1-1 可以看出，str1 和 str2 是指在栈空间中字符数组的首地址（并没有单独的存储空间来存储 str1 和 str2 的值），str3 和 str4 的值为常量区中存放“abc”的地址，str5 和 str6 的值分别为堆中申请的空间的首地址。
 

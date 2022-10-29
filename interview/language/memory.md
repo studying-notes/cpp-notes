@@ -1,9 +1,9 @@
 ---
-date: 2022-10-25T16:13:26+08:00  # 创建日期
+date: 2022-10-25 16:13:26+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 title: "内存分配"  # 文章标题
-url:  "posts/cpp/interview/questions/memory"  # 设置网页永久链接
+url:  "posts/cpp/interview/language/memory"  # 设置网页永久链接
 tags: [ "C", "C++" ]  # 标签
 series: [ "C 学习笔记" ]  # 系列
 categories: [ "学习笔记" ]  # 分类
@@ -28,7 +28,7 @@ draft: false  # 草稿
 
 需要注意的是，代码段和数据段之间有明确的分隔，但是数据段和堆栈段之间没有，而且栈是向下增长的，堆是向上增长的。
 
-![img](../../assets/images/interview/questions/memory/v2-f66cc21f6d1a0fa8c39021b7fd8d7533_1440w.webp)
+![img](../../assets/images/interview/language/memory/v2-f66cc21f6d1a0fa8c39021b7fd8d7533_1440w.webp)
 
 程序示例如下：
 

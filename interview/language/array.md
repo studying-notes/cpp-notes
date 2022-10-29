@@ -1,9 +1,9 @@
 ---
-date: 2022-10-27T15:23:00+08:00  # 创建日期
+date: 2022-10-27 15:23:00+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 title: "数组"  # 文章标题
-url:  "posts/cpp/interview/questions/array"  # 设置网页永久链接
+url:  "posts/cpp/interview/language/array"  # 设置网页永久链接
 tags: [ "C", "C++" ]  # 标签
 series: [ "C 学习笔记" ]  # 系列
 categories: [ "学习笔记" ]  # 分类

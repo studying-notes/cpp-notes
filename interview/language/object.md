@@ -1,9 +1,9 @@
 ---
-date: 2022-10-28T14:14:32+08:00  # 创建日期
+date: 2022-10-28 14:14:32+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 title: "面向对象"  # 文章标题
-url:  "posts/cpp/interview/questions/object"  # 设置网页永久链接
+url:  "posts/cpp/interview/language/object"  # 设置网页永久链接
 tags: [ "C", "C++" ]  # 标签
 series: [ "C 学习笔记" ]  # 系列
 categories: [ "学习笔记" ]  # 分类
@@ -620,7 +620,7 @@ B
 
 虚函数是通过一张虚函数表（Virtual Table）来实现的。该表是一个类的虚函数的地址表，表中保存了虚函数的地址。这样，在有虚函数的类的实例中，此表被分配在实例的内存中，所以当用父类的指针来操作一个子类的时候，这张虚函数表就显得非常重要了，它指明了实际应该调用的函数，如图 1-13 所示。
 
-![](../../assets/images/interview/questions/object/图1-13%20虚函数表的内存布局.png)
+![](../../assets/images/interview/language/object/图1-13%20虚函数表的内存布局.png)
 
 对于如下代码：
 

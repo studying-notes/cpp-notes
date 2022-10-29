@@ -1,9 +1,9 @@
 ---
-date: 2022-10-27T16:26:31+08:00  # 创建日期
+date: 2022-10-27 16:26:31+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 title: "变量"  # 文章标题
-url:  "posts/cpp/interview/questions/variable"  # 设置网页永久链接
+url:  "posts/cpp/interview/language/variable"  # 设置网页永久链接
 tags: [ "C", "C++" ]  # 标签
 series: [ "C 学习笔记" ]  # 系列
 categories: [ "学习笔记" ]  # 分类

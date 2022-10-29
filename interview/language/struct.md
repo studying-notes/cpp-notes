@@ -1,9 +1,9 @@
 ---
-date: 2022-10-26T14:29:30+08:00  # 创建日期
+date: 2022-10-26 14:29:30+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
 title: "结构体与类"  # 文章标题
-url:  "posts/cpp/interview/questions/struct_class"  # 设置网页永久链接
+url:  "posts/cpp/interview/language/struct"  # 设置网页永久链接
 tags: [ "C", "C++" ]  # 标签
 series: [ "C 学习笔记" ]  # 系列
 categories: [ "学习笔记" ]  # 分类
