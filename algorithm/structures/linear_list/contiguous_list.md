@@ -2,7 +2,7 @@
 date: 2022-11-02T13:31:19+08:00  # 创建日期
 author: "Rustle Karl"  # 作者
 
-title: "顺序表定义"  # 文章标题
+title: "线性表的顺序表示"  # 文章标题
 url:  "posts/cpp/algorithm/structures/linear_list/contiguous_list"  # 设置网页永久链接
 tags: [ "C", "C++" ]  # 标签
 series: [ "C 学习笔记" ]  # 系列
