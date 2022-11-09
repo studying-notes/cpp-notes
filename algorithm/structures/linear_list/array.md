@@ -110,3 +110,38 @@ void swap(int array[], int i, int j) {
   }
 }
 ```
+
+## 用递归实现数组求和
+
+给定一个含有 n 个元素的整型数组 a，求 a 中所有元素的和。
+
+```c++
+#include <stdio.h>
+
+int sum_of_array(int a[], int n) {
+  return n ? a[n - 1] + sum_of_array(a, n - 1) : 0;
+}
+
+int main() {
+  int a[] = {1, 2, 3, 4, 5};
+  int n = sizeof(a) / sizeof(a[0]);
+  printf("%d\n", sum_of_array(a, n));
+  return 0;
+}
+```
+
+## 用递归法判断一个数组中的元素是否递增
+
+```c++
+#include <stdio.h>
+
+int increment(int a[], int n) {
+  return n - 1 ? a[n - 1] >= a[n - 2] && increment(a, n - 1) : 1;
+}
+
+int main() {
+  int a[] = {1, 2, 3, 4, 5};
+  printf("%d\n", increment(a, 5));
+  return 0;
+}
+```

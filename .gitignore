@@ -2,6 +2,7 @@
 
 # Configuration
 cutter.yaml
+.obsidian
 
 # Debug
 *.dev.* 
