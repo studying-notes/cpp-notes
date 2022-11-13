@@ -1,4 +1,10 @@
 #include <iostream>
+#include <map>
+#include <unordered_set>
+
+#define len(array) (sizeof(array) / sizeof(array[0]))
+
+using namespace std;
 
 typedef int ElemType;
 
@@ -31,56 +37,49 @@ void PrintList(LNode *L) {
   std::cout << std::endl;
 }
 
-void Reverse(LNode *L) {
-  if (L->next == nullptr) {
-    return;// 空链表
-  }
+LNode *Merge(LNode *L1, LNode *L2) {
+  auto *L3 = new LNode{0, nullptr};
+  LNode *p1 = L1->next, *p2 = L2->next, *p3 = L3;
 
-  LNode *p = L->next, *q;// 是 L->next 而不是 L
-
-  while (p->next != nullptr) {
-    q = p->next;
-    p->next = q->next;
-    q->next = L->next;
-    L->next = q;
-  }
-}
-
-void Resort(LNode *L) {
-  if (L->next == nullptr) {
-    return;// 空链表
-  }
-
-  // 找到中间节点
-  LNode *fast = L, *slow = L;
-  while (fast->next != nullptr) {
-    slow = slow->next;
-    fast = fast->next;
-    if (fast->next != nullptr) {
-      fast = fast->next;
+  while (p1 != nullptr && p2 != nullptr) {
+    if (p1->data < p2->data) {
+      p3->next = p1;
+      p1 = p1->next;
+    } else {
+      p3->next = p2;
+      p2 = p2->next;
     }
+    p3 = p3->next;
   }
 
-  // 对后半链表逆序
-  Reverse(slow);
+  if (p1 != nullptr)
+    p3->next = p1;
 
-  // 插入
-  LNode *p = L->next, *q;
-  while (slow->next != nullptr && slow != p) {
-    // slow != p 十分关键，因为 slow 可能不是最后一个节点
-    q = slow->next;
-    slow->next = q->next;
-    q->next = p->next;
-    p->next = q;
-    p = q->next;
-  }
+  if (p2 != nullptr)
+    p3->next = p2;
+
+  return L3;
 }
 
 int main() {
-  ElemType a[] = {1, 3, 4, 2};
-  auto *A = CreateListTail(a, 4);
-  //  PrintList(A);
-  Resort(A);
-  PrintList(A);
+  ElemType a[] = {1, 3, 5};
+  ElemType b[] = {2, 4, 6};
+
+  auto *A = CreateListTail(a, len(a));
+  auto *B = CreateListTail(b, len(b));
+
+  auto *C = Merge(A, B);
+
+  PrintList(C);
+
+  //  LNode *p = A, *q = B;
+  //  while (p->next != nullptr)
+  //    p = p->next;
+  //  while (q->next != nullptr)
+  //    q = q->next;
+  //
+  //  p->next = A->next;
+  //  q->next = A->next;
+
   return 0;
 }
